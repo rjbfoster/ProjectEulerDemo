@@ -6,7 +6,7 @@ Learn about Project Euler: https://projecteuler.net/
 
 ## Purpose
 
-The purpose of this program is to demonstrate the programattic solving of the first 100 problems in Project Euler.
+The purpose of this program is to demonstrate the programmattic solving of the first 100 problems in Project Euler.
 
 It also demonstrates the following concepts in C#:
 * String input and parsing
