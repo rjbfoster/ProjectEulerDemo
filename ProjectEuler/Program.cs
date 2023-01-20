@@ -63,14 +63,27 @@ void DisplayProblem(int intProblem)
     else
     {
         Problem.GetProblem(intProblem);
-        Console.WriteLine("Press any key to return to main menu.");
-        Console.ReadKey();
+        Console.WriteLine(((intProblem > 1) ? "\t[P]revious" : "\t\t") + ((intProblem < Problem.AllProblems.Count) ? "\t[N]ext" : "\t") + "\tE[x]it program" +
+            "\n\n\t[Any other key to return to menu]");
+        var input = Console.ReadKey();
+        if (input.Key == ConsoleKey.X)
+        {
+            isRunning = false;
+        }
+        else if (input.Key == ConsoleKey.P && intProblem > 1)
+        {
+            DisplayProblem(intProblem - 1);
+        }
+        else if (input.Key == ConsoleKey.N && intProblem < Problem.AllProblems.Count)
+        {
+            DisplayProblem(intProblem + 1);
+        }
     }
 }
 
 void DisplayIndex()
 {
-    Console.WriteLine("Displaying index:");
+    Console.WriteLine("Displaying index of problems:");
     Problem.ShowProblems();
     Console.WriteLine("Press any key to return to main menu.");
     Console.ReadKey();

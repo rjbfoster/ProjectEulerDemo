@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProjectEuler.Problems;
 
@@ -130,5 +129,37 @@ internal partial class Problem
             }
             return output;
         }
+    }
+
+    private static void Problem_5()
+    {
+        Write("Problem:", "2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder. " +
+            "What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?");
+
+        var timer = Stopwatch.StartNew();
+
+        int i = 20;
+        bool isResulted = false;
+        bool isLocalResult = true;
+        while (!isResulted)
+        {
+            isLocalResult = true;
+            for (int j = 1; j <= 20; j++)
+            {
+                if (i % j != 0)
+                {
+                    isLocalResult = false;
+                    i++;
+                    break;
+                }
+            }
+            if (isLocalResult)
+            {
+                isResulted = true;
+                break;
+            }
+        }
+        timer.Stop();
+        Write("Solution:", $"{i} (Solved in {timer.ElapsedMilliseconds} ms)");
     }
 }

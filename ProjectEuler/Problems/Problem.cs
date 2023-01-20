@@ -70,7 +70,8 @@ internal partial class Problem
         { 1, new Problem("Multiples of 3 or 5", Problem_1) },
         { 2, new Problem("Even Fibonacci numbers", Problem_2) },
         { 3, new Problem("Largest prime factor", Problem_3) },
-        { 4, new Problem("Largest palindrome product", Problem_4) }
+        { 4, new Problem("Largest palindrome product", Problem_4) },
+        { 5, new Problem("Smallest multiple", Problem_5) }
     };
         
 }
