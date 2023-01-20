@@ -56,7 +56,7 @@ void DisplayWelcome()
 
 void DisplayProblem(int intProblem)
 {
-    if (intProblem < 0 || intProblem > 3)
+    if (intProblem < 0 || intProblem > Problem.AllProblems.Count)
     {
         throw new ProblemNotFoundException("The number you entered did not match any of the available problems. Please check the problem index and try again.");
     }

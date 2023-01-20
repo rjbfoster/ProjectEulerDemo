@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProjectEuler.Problems;
 
@@ -87,5 +88,47 @@ internal partial class Problem
         }
         timer.Stop();
         Write("Solution:", x.ToString() + $" (Solved in {timer.ElapsedMilliseconds} ms)");
+    }
+
+    private static void Problem_4()
+    {
+        Write("Problem:", "A palindromic number reads the same both ways. The largest palindrome made from the " +
+                          "product of two 2-digit numbers is 9009 = 91 × 99. Find the largest palindrome made from the product " +
+                          "of two 3-digit numbers.");
+
+        var timer = Stopwatch.StartNew();
+
+        long x = 0;
+        long w = 0;
+        for (int i = 999; i > 99; i--)
+        {
+            if (i * 999 <= w)
+            {
+                break;
+            }
+            for (int j = 999; j > 99; j--)
+            {
+                long y = i*j;
+                long z = ReverseNumber(y);
+                if (y == z)
+                {
+                    w = y;
+                    if (w > x) { x = w; }
+                }
+            }
+        }
+        timer.Stop();
+        Write("Solution:",$"{x} (Solved in {timer.ElapsedMilliseconds} ms)");
+
+        long ReverseNumber(long input)
+        {
+            long output = 0;
+            while (input > 0)
+            {
+                output = (output * 10) + (input % 10);
+                input /= 10;
+            }
+            return output;
+        }
     }
 }
